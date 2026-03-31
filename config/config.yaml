@@ -1,0 +1,167 @@
+# ============================================================
+# CrackVision: Intelligent Structural Health Monitoring
+# Configuration File
+# ============================================================
+
+project:
+  name: "CrackVision"
+  version: "1.0.0"
+  description: "Multi-Modal Crack Detection & Severity Analysis"
+
+paths:
+  data_dir: "data"
+  sample_dir: "data/sample"
+  synthetic_dir: "data/synthetic"
+  model_dir: "models"
+  results_dir: "results"
+  report_dir: "reports"
+
+preprocessing:
+  target_size: [512, 512]
+  color_space: "gray"           # gray | rgb | hsv
+  clahe_clip_limit: 3.0
+  clahe_grid_size: [8, 8]
+  bilateral_d: 9
+  bilateral_sigma_color: 75
+  bilateral_sigma_space: 75
+  gaussian_kernel: [5, 5]
+  gaussian_sigma: 1.0
+  histogram_equalization: true
+  denoise_strength: 10
+
+feature_extraction:
+  # Edge Detection
+  canny_low: 50
+  canny_high: 150
+  log_sigma: 2.0
+  dog_sigma1: 1.0
+  dog_sigma2: 2.0
+
+  # Gabor Filters
+  gabor_ksize: 31
+  gabor_sigmas: [1.0, 2.0, 3.0]
+  gabor_thetas: [0, 0.785, 1.571, 2.356]  # 0, 45, 90, 135 degrees
+  gabor_lambdas: [5.0, 10.0, 15.0]
+  gabor_gammas: [0.3, 0.5]
+
+  # HOG
+  hog_orientations: 9
+  hog_pixels_per_cell: [16, 16]
+  hog_cells_per_block: [2, 2]
+  hog_block_norm: "L2-Hys"
+
+  # SIFT
+  sift_n_features: 500
+  sift_n_octave_layers: 3
+  sift_contrast_threshold: 0.04
+  sift_edge_threshold: 10
+  sift_sigma: 1.6
+
+  # Harris Corner
+  harris_block_size: 2
+  harris_ksize: 3
+  harris_k: 0.04
+  harris_threshold: 0.01
+
+  # Image Pyramids
+  pyramid_levels: 4
+
+segmentation:
+  # Morphological Operations
+  morph_kernel_size: 5
+  morph_iterations: 2
+
+  # Thresholding
+  adaptive_block_size: 11
+  adaptive_c: 2
+  otsu_enabled: true
+
+  # Connected Components
+  min_crack_area: 100
+  max_crack_area: 100000
+
+  # Graph Cut / GrabCut
+  grabcut_iterations: 5
+
+  # Mean-Shift
+  meanshift_spatial_radius: 21
+  meanshift_color_radius: 51
+  meanshift_max_level: 1
+
+classification:
+  # Model type: svm | knn | gmm | cnn
+  model_type: "svm"
+  
+  # SVM
+  svm_kernel: "rbf"
+  svm_c: 10.0
+  svm_gamma: "scale"
+
+  # KNN
+  knn_neighbors: 5
+  knn_metric: "euclidean"
+
+  # GMM
+  gmm_n_components: 3
+  gmm_covariance_type: "full"
+
+  # PCA for dimensionality reduction
+  pca_n_components: 50
+
+  # Severity levels
+  severity_levels: ["none", "minor", "moderate", "severe", "critical"]
+
+  # Train/test split
+  test_size: 0.2
+  random_state: 42
+
+depth_analysis:
+  # Stereo vision simulation
+  stereo_num_disparities: 64
+  stereo_block_size: 15
+  stereo_min_disparity: 0
+  baseline: 0.1          # meters
+  focal_length: 500.0    # pixels
+
+shape_analysis:
+  # Photometric stereo
+  light_directions: 4
+  albedo_estimation: true
+  surface_normal_method: "least_squares"
+
+  # Shape from texture
+  texture_gradient_method: "sobel"
+  vanishing_point_estimation: true
+
+motion_analysis:
+  # Optical Flow
+  optical_flow_method: "farneback"  # farneback | lucas_kanade
+  farneback_pyr_scale: 0.5
+  farneback_levels: 3
+  farneback_winsize: 15
+  farneback_iterations: 3
+  farneback_poly_n: 5
+  farneback_poly_sigma: 1.2
+
+  # Background Subtraction
+  bg_subtractor: "MOG2"  # MOG2 | KNN
+  bg_history: 500
+  bg_threshold: 16
+  bg_detect_shadows: true
+
+  # Video processing
+  frame_skip: 1
+  min_motion_area: 500
+
+evaluation:
+  metrics: ["accuracy", "precision", "recall", "f1", "iou"]
+  confusion_matrix: true
+  classification_report: true
+  cross_validation_folds: 5
+
+visualization:
+  save_format: "png"
+  dpi: 150
+  colormap: "jet"
+  overlay_alpha: 0.4
+  figure_size: [14, 10]

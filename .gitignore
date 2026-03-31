@@ -1,0 +1,35 @@
+# CrackVision - .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Data & Models (large files)
+data/synthetic/
+data/raw/
+models/*.pkl
+models/*.pth
+
+# Results (regeneratable)
+results/*.png
+results/*.json
+
+# OS
+.DS_Store
+Thumbs.db

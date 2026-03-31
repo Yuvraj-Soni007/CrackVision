@@ -1,0 +1,30 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.13.7, pytest-8.4.2, pluggy-1.6.0 -- C:\Python313\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\Yuvraj\Desktop\CV
+plugins: anyio-4.10.0, locust-2.40.5
+collecting ... collected 29 items
+
+tests/test_pipeline.py::TestPreprocessing::test_clahe PASSED             [  3%]
+tests/test_pipeline.py::TestPreprocessing::test_fourier_highpass PASSED  [  6%]
+tests/test_pipeline.py::TestPreprocessing::test_histogram PASSED         [ 10%]
+tests/test_pipeline.py::TestPreprocessing::test_histogram_stats PASSED   [ 13%]
+tests/test_pipeline.py::TestEdgeDetection::test_canny PASSED             [ 17%]
+tests/test_pipeline.py::TestEdgeDetection::test_dog PASSED               [ 20%]
+tests/test_pipeline.py::TestEdgeDetection::test_hough_lines PASSED       [ 24%]
+tests/test_pipeline.py::TestEdgeDetection::test_log PASSED               [ 27%]
+tests/test_pipeline.py::TestEdgeDetection::test_multi_scale PASSED       [ 31%]
+tests/test_pipeline.py::TestTextureFeatures::test_dwt PASSED             [ 34%]
+tests/test_pipeline.py::TestTextureFeatures::test_extract_combined PASSED [ 37%]
+tests/test_pipeline.py::TestTextureFeatures::test_gabor PASSED           [ 41%]
+tests/test_pipeline.py::TestTextureFeatures::test_lbp PASSED             [ 44%]
+tests/test_pipeline.py::TestKeypointFeatures::test_harris PASSED         [ 48%]
+tests/test_pipeline.py::TestKeypointFeatures::test_orb PASSED            [ 51%]
+tests/test_pipeline.py::TestKeypointFeatures::test_pyramid PASSED        [ 55%]
+tests/test_pipeline.py::TestKeypointFeatures::test_sift PASSED           [ 58%]
+tests/test_pipeline.py::TestHOG::test_hog_compute PASSED                 [ 62%]
+tests/test_pipeline.py::TestHOG::test_hog_manual PASSED                  [ 65%]
+tests/test_pipeline.py::TestSegmentation::test_full_pipeline PASSED      [ 68%]
+tests/test_pipeline.py::TestSegmentation::test_morphological PASSED      [ 72%]
+tests/test_pipeline.py::TestSegmentation::test_threshold_segment PASSED  [ 75%]
+tests/test_pipeline.py::TestSeverity::test_severity_analysis 
