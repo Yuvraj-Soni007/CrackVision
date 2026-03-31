@@ -444,3 +444,5 @@ This project is released under the **MIT License** for academic and educational 
 ---
 
 *Built with ❤️ for structural safety and academic excellence.*
+#   C r a c k V i s i o n  
+ 
