@@ -1,216 +1,142 @@
-# CrackVision  
-**Intelligent Structural Health Monitoring System using Classical Computer Vision**
+**CrackVision**
+Intelligent Structural Health Monitoring System
+A Multi-Modal Crack Detection & Severity Analysis Framework Using Classical Computer Vision
 
-CrackVision is a modular, production-ready computer vision framework designed for automated detection, segmentation, feature extraction, depth estimation, and severity analysis of structural cracks. It implements more than ten classical CV modules and supports academic research, university submissions, and real-world inspection workflows.
+**Overview**
+CrackVision is a classical computer vision framework for automated crack detection, segmentation, depth estimation, and severity analysis. It integrates more than ten traditional CV modules and provides an end-to-end pipeline suitable for academic coursework, research, and real-world deployment.
 
----
+The system supports:
+Crack detection
+Segmentation using multiple algorithms
+Feature extraction (edges, texture, keypoints, shape)
+Severity classification
+Stereo and photometric depth estimation
+Crack progression tracking
 
-## Features
-- Automated crack detection and segmentation  
-- Multi-algorithm feature extraction (edges, texture, keypoints)  
-- Severity classification using classical ML (SVM, KNN)  
-- Stereo-based depth estimation (SGBM)  
-- Photometric stereo for surface normals  
-- Temporal crack progression tracking  
-- Modular, extensible, research-friendly architecture  
+**Motivation**
+Structural cracks are early indicators of damage and safety risks. Manual inspection is slow, subjective, and difficult in hazardous locations. CrackVision aims to provide a low-cost, automated, scalable solution for preventive maintenance, infrastructure evaluation, and civil engineering applications.
 
----
+**Course Syllabus Coverage**
+CrackVision demonstrates practical implementations from various Computer Vision topics, such as:
+Image processing and enhancement
+Feature extraction
+Image segmentation
+Pattern recognition
+Motion analysis
+Stereo vision and depth estimation
+Shape-from-X techniques
 
-## Table of Contents
-- Overview  
-- Motivation  
-- Syllabus Coverage  
-- System Architecture  
-- Installation  
-- Quick Start  
-- Dataset Preparation  
-- Usage Examples  
-- Project Structure  
-- Results  
-- Evaluation Metrics  
-- Challenges & Solutions  
-- Future Work  
-- License  
+**System Workflow**
+CrackVision follows a modular pipeline consisting of:
+Preprocessing and enhancement
+Feature extraction
+Segmentation
+Classification and severity scoring
+Depth and shape analysis
+Visualization and reporting
 
----
-
-## Overview
-
-CrackVision integrates multiple classical computer vision algorithms into an end-to-end crack analysis pipeline.  
-It supports:
-
-- Crack localisation  
-- Segmentation and mask refinement  
-- Feature extraction (SIFT, ORB, HOG, LBP)  
-- Severity scoring using interpretable metrics  
-- Depth estimation and surface normal recovery  
-- Motion-based crack progression analysis  
-
-The system is robust, modular, and easily extensible for research applications.
-
----
-
-## Motivation
-
-Structural cracks indicate early deterioration, safety hazards, corrosion, and material failure.  
-Manual inspections are often subjective, slow, and challenging in hazardous or remote locations.
-
-CrackVision aims to offer:
-
-- A low-cost automated monitoring solution  
-- A scalable and objective evaluation system  
-- A practical tool for civil engineering and infrastructure maintenance  
-
----
-
-## Syllabus Coverage
-
-| Module | Techniques | Directory |
-|--------|-----------|-----------|
-| Image Processing | Convolution, CLAHE, bilateral, Fourier | `src/preprocessing/` |
-| Stereo Vision | SGBM, homography, RANSAC | `src/analysis/depth_analysis.py` |
-| Segmentation | Otsu, GrabCut, watershed, mean-shift, CCA | `src/segmentation/` |
-| Feature Extraction | SIFT, ORB, Harris, HOG, LBP, Gabor, DWT | `src/feature_extraction/` |
-| Motion Analysis | Optical flow, background subtraction | `src/motion/` |
-| Pattern Recognition | SVM, KNN, PCA, LDA, GMM | `src/analysis/` |
-| Shape-from-X | Photometric stereo | `src/shape_analysis/` |
-
----
-
-## System Architecture
-Input Image(s)
-│
-▼
-
-Preprocessing (CLAHE, Bilateral, Fourier)
-│
-Feature Extraction (Edges, Texture, Keypoints)
-│
-Segmentation (GrabCut, Watershed, Thresholding)
-│
-Severity Classification (SVM/KNN, PCA/LDA)
-│
-Depth & Shape Analysis (Stereo SGBM, Photometric Stereo)
-│
-Visualization & Reporting
-
----
-
-## Installation
-
-### Prerequisites
-- Python 3.10+  
-- pip  
-
-### Setup
-
-```bash
+**Installation**
+Requirements
+Python 3.10+
+pip
+**Steps**
 git clone <your_repository_link>
 cd CV
-
 python -m venv venv
 venv\Scripts\activate    # Windows
-# source venv/bin/activate  # Linux/Mac
-
+"# source venv/bin/activate   # Linux/Mac"
 pip install -r requirements.txt
-Quick Start
-Run Demo
+
+**Quick Start Guide**
+Run the complete demo:
 python scripts/demo.py
-Train Models
+
+**Train models:**
 python scripts/train.py --model-type svm
 python scripts/train.py --model-type knn
-Run Inference
+
+**Run inference:**
 python scripts/inference.py path/to/image.jpg
-Dataset Preparation
-Option A: Generate Synthetic Data
+
+**Evaluate:**
+python scripts/evaluate.py
+
+**Dataset Preparation**
+
+**Option A: Generate synthetic data**
 python scripts/generate_data.py
 
-Structure:
+**Option B: Use public datasets**
+Supports datasets such as SDNET2018, Crack500, CrackForest, and DeepCrack.
 
-data/synthetic/
-    none/
-    minor/
-    moderate/
-    severe/
-    critical/
-Option B: Use Public Crack Datasets
-
-Compatible with:
-
-SDNET2018
-Crack500
-CrackForest
-DeepCrack
-Usage Examples
-Basic Image Processing
+**Usage Instructions**
+Example (single image processing)
 from src.preprocessing import ImageLoader, ImageEnhancer
 from src.feature_extraction import EdgeDetector
 from src.segmentation import CrackSegmenter
 from src.analysis import SeverityAnalyzer
-Depth & Shape Analysis
-from src.analysis.depth_analysis import StereoDepthEstimator
-from src.shape_analysis.photometric import PhotometricStereo
-Project Structure
+
+"# Complete detailed example can be inserted here"
+
+**Depth and Shape Analysis**
+Examples for stereo-based depth estimation and photometric stereo are supported.
+
+**Project Structure**
+A simplified version of the repository layout:
 CV/
- ├── src/
- │   ├── preprocessing/
- │   ├── feature_extraction/
- │   ├── segmentation/
- │   ├── analysis/
- │   ├── shape_analysis/
- │   ├── motion/
- │   └── visualization/
- ├── scripts/
- ├── data/
- ├── models/
- ├── results/
- ├── reports/
- └── README.md
-Results
+  config/
+  src/
+    preprocessing/
+    feature_extraction/
+    segmentation/
+    analysis/
+    shape_analysis/
+    motion/
+    visualization/
+  scripts/
+  tests/
+  data/
+  models/
+  results/
+  reports/
+  requirements.txt
+  README.md
 
-Output includes:
-
-Crack segmentation masks
-Depth maps and normal maps
-Feature visualisations
-Severity bar charts
+**Results and Visualisations**
+The results/ directory includes:
+Segmentation outputs
+Depth maps
+Normal maps
+Severity charts
 Confusion matrices
-Evaluation metrics (JSON)
-Evaluation Metrics
+Evaluation metrics
+
+**Evaluation Metrics**
+The project includes:
 Accuracy
 Precision
 Recall
-F1 Score
+F1-score
 Intersection-over-Union
-Confusion Matrix
+Confusion matrix
+Typical synthetic dataset results:
+Accuracy around 0.85 and weighted F1-score around 0.84.
 
-Synthetic dataset baseline:
+**Challenges and Solutions**
+Common challenges addressed in CrackVision include:
+Lighting variations
+Thin crack detection
+Noisy segmentation
+Limited datasets
+Absence of stereo input in real imagery
+Solutions include enhanced preprocessing, multi-scale feature extraction, synthetic dataset generation, and photometric stereo.
 
-Accuracy ≈ 0.85
-Weighted F1 ≈ 0.84
-Challenges & Solutions
-Challenge	Solution
-Lighting inconsistency	CLAHE + Fourier filtering
-Thin crack detection	Multi-scale edge extraction
-Noisy segmentation	Morphological refinement
-Limited dataset	Synthetic generation + augmentation
-Lack of stereo inputs	Simulated stereo + photometric stereo
-Future Work
-Deep learning segmentation (U-Net, ResNet variants)
-Drone-based inspection integration
-Real stereo camera interfacing
-GPU-accelerated real-time pipeline
-Cloud and web dashboard for monitoring
-License
+**Future Enhancements**
+Deep learning–based segmentation
+Integration with real stereo camera systems
+Drone-based inspection
+GPU-accelerated real-time processing
+Web-based monitoring dashboard
 
-This project is released under the MIT License for academic and research use.
-
-
----
-
-If you want, I can also generate:
-
-- A shorter README version  
-- A professional banner/header for the top  
-- Badges (Python version, License, Build, etc.)  
-- A CONTRIBUTING.md or project wiki  
+**License**
+Released under the MIT License for academic and research use.
